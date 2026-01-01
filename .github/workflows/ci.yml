@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Node.js application image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./app
+          push: false
+          tags: node-app:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Validate docker-compose configuration
+        run: docker compose config --quiet
+
+      - name: Start services
+        run: docker compose up -d --build
+
+      - name: Wait for services to be ready
+        run: |
+          echo "Waiting for services to start..."
+          sleep 15
+
+      - name: Health check - Application
+        run: |
+          curl --fail --silent --show-error http://localhost/health || exit 1
+
+      - name: Health check - Metrics endpoint
+        run: |
+          curl --fail --silent --show-error http://localhost/metrics || exit 1
+
+      - name: Health check - Prometheus
+        run: |
+          curl --fail --silent --show-error http://localhost:9090/-/healthy || exit 1
+
+      - name: Stop services
+        if: always()
+        run: docker compose down --volumes

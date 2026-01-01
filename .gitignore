@@ -1,0 +1,18 @@
+npm-debug.log*
+.npm
+.env
+.env.local
+.DS_Store
+*.log
+# IDE / Editor files
+.vs/
+.vscode/
+*.sln
+*.slnx
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
