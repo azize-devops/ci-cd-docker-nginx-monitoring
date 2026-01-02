@@ -56,7 +56,7 @@ A production-ready Docker setup featuring a Node.js application with Nginx rever
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/ci-cd-docker-nginx-monitoring.git
+   git clone https://github.com/azize-devops/ci-cd-docker-nginx-monitoring.git
    cd ci-cd-docker-nginx-monitoring
    ```
 
