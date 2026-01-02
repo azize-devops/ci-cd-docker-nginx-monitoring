@@ -88,17 +88,20 @@ A production-ready Docker setup featuring a Node.js application with Nginx rever
 
 ## Screenshots
 
-### Application Response
-![Application](docs/screenshots/app.png)
+### Docker Containers Running
+![Docker Containers](screenshots/01-docker-containers-running.png)
 
 ### Prometheus Targets
-![Prometheus](docs/screenshots/prometheus.png)
+![Prometheus Targets](screenshots/02-prometheus-targets-up.png)
 
 ### Grafana Dashboard
-![Grafana Dashboard](docs/screenshots/grafana-dashboard.png)
+![Grafana Dashboard](screenshots/03-grafana-up-query.png)
 
-### Health Check
-![Health Check](docs/screenshots/health.png)
+### Application Root Endpoint
+![Application](screenshots/04-app-root-endpoint.png)
+
+### Health Check Endpoint
+![Health Check](screenshots/05-app-health-endpoint.png)
 
 ## Project Structure
 
