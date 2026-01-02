@@ -18,9 +18,17 @@ services:
       timeout: 10s
       retries: 3
       start_period: 10s
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
 
   nginx:
-    image: nginx:alpine
+    image: nginx:1.25-alpine
     container_name: nginx-proxy
     restart: unless-stopped
     ports:
@@ -36,9 +44,17 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 128M
+        reservations:
+          cpus: '0.1'
+          memory: 64M
 
   prometheus:
-    image: prom/prometheus:latest
+    image: prom/prometheus:v2.47.0
     container_name: prometheus
     restart: unless-stopped
     ports:
@@ -58,9 +74,17 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
 
   grafana:
-    image: grafana/grafana:latest
+    image: grafana/grafana:10.2.0
     container_name: grafana
     restart: unless-stopped
     ports:
@@ -81,6 +105,14 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
 
 networks:
   app-network:

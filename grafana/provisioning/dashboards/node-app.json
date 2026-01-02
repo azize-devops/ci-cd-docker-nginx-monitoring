@@ -432,7 +432,7 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "expr": "process_uptime_seconds",
+          "expr": "time() - process_start_time_seconds",
           "legendFormat": "__auto",
           "refId": "A"
         }
