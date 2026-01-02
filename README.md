@@ -95,7 +95,7 @@ A production-ready Docker setup featuring a Node.js application with Nginx rever
 ![Prometheus Targets](screenshots/02-prometheus-targets-up.png)
 
 ### Grafana Dashboard
-![Grafana Dashboard](screenshots/03-grafana-up-query.png)
+![Grafana Dashboard](screenshots/03-grafana-dashboard.png)
 
 ### Application Root Endpoint
 ![Application](screenshots/04-app-root-endpoint.png)
