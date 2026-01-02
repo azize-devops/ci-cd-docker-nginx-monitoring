@@ -11,7 +11,8 @@ FROM node:20-alpine
 WORKDIR /app
 
 RUN addgroup -g 1001 -S nodejs && \
-    adduser -S nodejs -u 1001
+    adduser -S nodejs -u 1001 && \
+    apk add --no-cache wget
 
 COPY --from=builder /app/node_modules ./node_modules
 COPY --chown=nodejs:nodejs src ./src
