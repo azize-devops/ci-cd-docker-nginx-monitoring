@@ -166,7 +166,7 @@ The application exposes the following Prometheus metrics:
 | `http_request_duration_seconds` | Histogram | Request duration distribution |
 | `process_cpu_seconds_total` | Counter | CPU time used |
 | `process_resident_memory_bytes` | Gauge | Memory usage |
-| `nodejs_eventloop_lag_seconds` | Gauge | Event loop lag |
+| `process_start_time_seconds` | Gauge | Process start time (for uptime calculation) |
 
 ## CI/CD Pipeline
 
