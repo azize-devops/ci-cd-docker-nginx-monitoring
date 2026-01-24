@@ -16,5 +16,3 @@ Thumbs.db
 
 # Node
 node_modules/
-# Claude local settings
-.claude/
